@@ -8,7 +8,7 @@ const Register = () => {
       console.log( 'createuser', createUser);
         const handleSubmit = event =>{
             event.preventDefault();
-            
+
             const form = event.target;
             const name =form.name.value
             const  email= form.email.value;
@@ -23,6 +23,7 @@ const Register = () => {
             .catch(error=>{
                 console.error(error);
             })
+            form.reset()
         }
     return (
         <div>

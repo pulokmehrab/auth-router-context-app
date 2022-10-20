@@ -12,6 +12,7 @@ const LogIn = () =>{
         const password =form.password.value;
         console.log(email,password)
         signIn(email,password)
+        
         .then(result=>{
             const user =result.user
             console.log(user)
@@ -19,6 +20,7 @@ const LogIn = () =>{
         })
         .catch(error=>console.error(error)
         )
+        form.reset()
     }
     return (
         <div>
