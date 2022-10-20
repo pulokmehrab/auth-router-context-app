@@ -6,8 +6,11 @@ const Home = () => {
 
     return (
         <div>
-          <h1>welcome {user?.email}</h1>
-        </div>
+           {user?.email && <span className='mx-4'> 
+           User Email:-{user.email}
+           <h1> Welcome {user.displayName}</h1>
+  </span>}
+        </div> 
     );
 };
 

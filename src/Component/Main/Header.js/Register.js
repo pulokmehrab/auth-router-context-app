@@ -1,10 +1,11 @@
+import { error } from 'daisyui/src/colors';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/UserContext';
 
 
 const Register = () => {
-     const {createUser} = useContext(AuthContext);
+     const {createUser, signWithGoogle } = useContext(AuthContext);
       console.log( 'createuser', createUser);
         const handleSubmit = event =>{
             event.preventDefault();
@@ -24,6 +25,14 @@ const Register = () => {
                 console.error(error);
             })
             form.reset()
+        }
+        const handlesigninwithggle =()=>{
+            signWithGoogle()
+            .then(result=>{
+                const user =result.user;
+                console.log(user);
+            })
+            .catch(error => console.log(error))
         }
     return (
         <div>
@@ -60,6 +69,8 @@ const Register = () => {
           <Link to="/login" className="btn glass ">Log In</Link>
         </div>
       </form>
+      <button onClick={handlesigninwithggle} className="btn btn-success">Success</button>
+
     </div>
   </div>
 </div>
